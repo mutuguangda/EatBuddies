@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --experimental-https",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sync": "tsx --tsconfig ./tsconfig.node.json ./scripts/sync.ts"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
+    "fflate": "^0.8.2",
+    "lodash-es": "^4.17.21",
+    "lucide-react": "^0.436.0",
+    "next": "14.1.4",
+    "notion-client": "^6.16.0",
+    "notion-utils": "^6.16.0",
+    "react": "^18",
+    "react-div-100vh": "^0.7.0",
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "use-immer": "^0.9.0",
+    "vaul": "^0.9.1"
+  },
+  "devDependencies": {
+    "@egoist/tailwindcss-icons": "^1.7.4",
+    "@iconify-json/heroicons": "^1.1.24",
+    "@iconify/tailwind": "^0.1.4",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "dotenv": "^16.4.5",
+    "eslint": "^8",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "tsx": "^4.17.0",
+    "typescript": "^5"
+  }
+}
