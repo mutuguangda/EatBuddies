@@ -6,22 +6,38 @@ import Div100vh from "react-div-100vh";
 import {
   Drawer,
   DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { useToast } from "@/components/ui/use-toast"
-import { utoa } from "@/lib/utils";
+import { useToast } from "@/components/ui/use-toast";
+import { cn, utoa } from "@/lib/utils";
+import { setClipboard } from "@/lib/utils";
 
 export default function Page() {
   const [order, setOrder] = useState<Recordable[]>([]);
-  const shareUrl = `${location.href}/share#${utoa(JSON.stringify(order))}`
-  const { toast } = useToast()
+  const shareUrl = `${location.href}/share#${utoa(
+    JSON.stringify(order.map((item) => item.id))
+  )}`;
+  const { toast } = useToast();
 
   const handleAdd = (item: Recordable) => {
+    if (order.includes(item)) {
+      return;
+    }
     setOrder([...order, item]);
   };
 
   const handleDelete = (item: Recordable) => {
     setOrder(() => order.filter((o) => o !== item));
+  };
+
+  const share = async () => {
+    await setClipboard(shareUrl);
+    toast({
+      title: "已复制到剪贴板",
+    });
   };
 
   return (
@@ -36,7 +52,13 @@ export default function Page() {
         <div className="p-5 h-0 min-h-0 flex-grow overflow-auto flex flex-col gap-2">
           {data.map((item) => {
             return (
-              <div key={item.id} className="flex p-5 gap-2 border rounded-lg">
+              <div
+                key={item.id}
+                className={cn([
+                  "flex p-5 gap-2 border rounded-lg",
+                  order.includes(item) ? "border-primary" : "",
+                ])}
+              >
                 {item.image ? (
                   <Image
                     src={`https://www.notion.so/image/${encodeURIComponent(
@@ -61,9 +83,19 @@ export default function Page() {
                 <div className="flex flex-col justify-end">
                   <div
                     className="flex justify-center items-center p-1 text-gray-500 text-xl border rounded-full hover:text-primary hover:border-primary cursor-pointer"
-                    onClick={() => handleAdd(item)}
+                    onClick={
+                      !order.includes(item)
+                        ? () => handleAdd(item)
+                        : () => handleDelete(item)
+                    }
                   >
-                    <span className="icon-[heroicons--plus]"></span>
+                    <span
+                      className={
+                        !order.includes(item)
+                          ? "icon-[heroicons--plus]"
+                          : "icon-[heroicons--minus]"
+                      }
+                    ></span>
                   </div>
                 </div>
               </div>
@@ -81,6 +113,9 @@ export default function Page() {
               </div>
             </DrawerTrigger>
             <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>已点的菜单</DrawerTitle>
+              </DrawerHeader>
               <div className="flex flex-col gap-2 p-2">
                 {order.map((item) => {
                   return (
@@ -120,16 +155,8 @@ export default function Page() {
               </div>
             </DrawerContent>
           </Drawer>
-          <button
-            onClick={() => {
-              toast({
-                title: "已复制到剪贴板",
-                description: "请到微信中粘贴并发送",
-              })
-            }}
-            className="btn-primary"
-          >
-            分享
+          <button onClick={share} className="btn-primary">
+            点菜
           </button>
         </div>
       </Div100vh>
