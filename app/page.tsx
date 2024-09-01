@@ -6,18 +6,18 @@ import Div100vh from "react-div-100vh";
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
 
 export default function Page() {
   const [order, setOrder] = useState<Recordable[]>([]);
-  const shareUrl = `${location.href}/share#${utoa(
+  const shareUrl = `${location ? location.href: ''}/share#${utoa(
     JSON.stringify(order.map((item) => item.id))
   )}`;
   const { toast } = useToast();
@@ -155,9 +155,7 @@ export default function Page() {
               </div>
             </DrawerContent>
           </Drawer>
-          <button onClick={share} className="btn-primary">
-            点菜
-          </button>
+          <Button onClick={share} variant="outline">点菜</Button>
         </div>
       </Div100vh>
     </>
