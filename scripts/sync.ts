@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { writeFileSync } from "fs";
 import { NotionAPI } from 'notion-client'
 
@@ -19,6 +18,7 @@ async function main() {
       properties = {}, 
     } = block[key].value
     if (type === 'collection_view') {
+      // @ts-ignore Property 'collection_id' does not exist on type 'Block'
       collectionId = block[key].value.collection_id!
       schema = collection[collectionId!].value.schema
     }
@@ -37,5 +37,4 @@ async function main() {
     })
   })
   writeFileSync("data.json", JSON.stringify(data, null, 2));  
-  // const schema = collection.schema;
 }
