@@ -17,9 +17,9 @@ import { setClipboard } from "@/lib/utils";
 
 export default function Page() {
   const [order, setOrder] = useState<Recordable[]>([]);
-  const shareUrl = `${location ? location.href: ''}/share#${utoa(
-    JSON.stringify(order.map((item) => item.id))
-  )}`;
+  const shareUrl = `${
+    typeof window !== "undefined" ? location.href : ''
+  }/share#${utoa(JSON.stringify(order.map((item) => item.id)))}`;
   const { toast } = useToast();
 
   const handleAdd = (item: Recordable) => {
@@ -155,7 +155,9 @@ export default function Page() {
               </div>
             </DrawerContent>
           </Drawer>
-          <Button onClick={share} variant="outline">点菜</Button>
+          <Button onClick={share} variant="outline">
+            点菜
+          </Button>
         </div>
       </Div100vh>
     </>

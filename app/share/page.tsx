@@ -6,7 +6,7 @@ import { atou } from "@/lib/utils";
 
 export default function Page() {
   const ids = JSON.parse(
-    atou((location ? location.hash : "").slice(1))
+    atou((typeof window !== 'undefined' ? location.hash : '').slice(1))
   ) as string[];
   const order = data.filter((item) => ids.includes(item.id));
 
