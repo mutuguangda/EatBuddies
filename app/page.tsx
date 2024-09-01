@@ -50,7 +50,7 @@ export default function Page() {
       </header> */}
       <Div100vh className="flex flex-col">
         <div className="p-5 h-0 min-h-0 flex-grow overflow-auto flex flex-col gap-2">
-          {data.map((item) => {
+          {data.map((item: any) => {
             return (
               <div
                 key={item.id}

@@ -5,14 +5,16 @@ import Div100vh from "react-div-100vh";
 import { atou } from "@/lib/utils";
 
 export default function Page() {
-  const ids = JSON.parse(atou(location.hash.slice(1))) as string[]
-  const order = data.filter(item => ids.includes(item.id))
+  const ids = JSON.parse(
+    atou((location ? location.hash : "").slice(1))
+  ) as string[];
+  const order = data.filter((item) => ids.includes(item.id));
 
   return (
     <>
       <Div100vh className="flex flex-col">
         <div className="p-5 h-0 min-h-0 flex-grow overflow-auto flex flex-col gap-2">
-          {order.map((item) => {
+          {order.map((item: any) => {
             return (
               <div key={item.id} className="flex p-5 gap-2 border rounded-lg">
                 {item.image ? (
