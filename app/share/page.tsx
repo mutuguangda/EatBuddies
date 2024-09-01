@@ -5,9 +5,10 @@ import Div100vh from "react-div-100vh";
 import { atou } from "@/lib/utils";
 
 export default function Page() {
-  const ids = JSON.parse(
-    atou((typeof window !== 'undefined' ? location.hash : '').slice(1))
-  ) as string[];
+  const ids: string[] =
+    typeof window !== "undefined"
+      ? JSON.parse(atou(window.location.hash.slice(1)))
+      : [];
   const order = data.filter((item) => ids.includes(item.id));
 
   return (
