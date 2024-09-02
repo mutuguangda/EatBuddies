@@ -1,7 +1,7 @@
 "use client";
 import { categories, content } from "./data.json";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Div100vh from "react-div-100vh";
 import {
   Drawer,
@@ -14,10 +14,11 @@ import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
+import { debounce, throttle } from "lodash-es";
 
 export default function Page() {
   const [order, setOrder] = useState<Recordable[]>([]);
-  const [category, setCategory] = useState<string>("");
+  const [category, setCategory] = useState<string>(categories[0]);
   const shareUrl = `${
     typeof window !== "undefined" ? window.location.origin : ""
   }/share#${utoa(JSON.stringify(order))}`;
@@ -25,7 +26,53 @@ export default function Page() {
     acc[cur] = content.filter((item) => item.tags.includes(cur));
     return acc;
   }, {} as Recordable);
+  const container = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (container.current) {
+      const nodeList = document.querySelectorAll("[data-target-anchor]");
+      const anchors = Array.from(nodeList).map((item) => {
+        return getScrollToElementValue(container.current!, item as HTMLElement);
+      });
+      console.log("anchors", anchors);
+      container.current.addEventListener(
+        "scroll",
+        throttle(() => {
+          const scrollTop = container.current!.scrollTop;
+          console.log("scrollTop", scrollTop);
+          for (let i = 0; i < anchors.length; i++) {
+            if (i === 0 && scrollTop < anchors[i]) {
+              setCategory(categories[0]);
+              break;
+            }
+            if (scrollTop >= anchors[i]) {
+              if (i === anchors.length - 1) {
+                setCategory(categories[i]);
+                break;
+              }
+              if (scrollTop < anchors[i + 1]) {
+                setCategory(categories[i]);
+                break;
+              }
+            }
+          }
+        }, 200)
+      );
+      return container.current.removeEventListener("scroll", () => {});
+    }
+  }, []);
+
+  function getScrollToElementValue(
+    scrollContainer: HTMLElement,
+    targetElement: HTMLElement
+  ) {
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const targetRect = targetElement.getBoundingClientRect();
+    const relativeTop = targetRect.top - containerRect.top;
+    const scrollValue = scrollContainer.scrollTop + relativeTop;
+    return scrollValue;
+  }
 
   const handleAdd = (item: Recordable) => {
     if (order.includes(item)) {
@@ -48,33 +95,35 @@ export default function Page() {
   return (
     <>
       {/* <header className="fixed top-0 border-b p-5 flex justify-between items-center">
-        <span>EatBuddies</span>
-        <div>
-          
-        </div>
+        <span>友食</span>
       </header> */}
       <Div100vh className="flex flex-col">
         <div className="h-0 min-h-0 flex-grow flex">
-          <div className="flex flex-col gap-2 border-r w-1/5">
+          <div className="relative flex flex-col border-r w-1/5">
             {categories.map((item) => (
-              <a
-                key={item}
-                className={cn([
-                  "p-3",
-                  category === item ? "bg-primary text-white" : "",
-                ])}
-                onClick={() => setCategory(item)}
-                href={`#${item}`}
-              >
+              <a key={item} className="p-3" href={`#${item}`}>
                 {item}
               </a>
             ))}
+            <div
+              className="absolute right-0 top-0 h-12 transition-all flex items-center"
+              style={{
+                transform: `translateY(${3 * categories.indexOf(category)}rem)`,
+              }}
+            >
+              <span className="border-r-2 border-primary h-6 transform translate-y-0.5"></span>
+            </div>
           </div>
-          <div className="m-0 min-w-0 flex-grow p-3 overflow-auto flex flex-col gap-5">
+          <div
+            className="m-0 min-w-0 flex-grow p-3 overflow-auto flex flex-col gap-5 scroll-smooth"
+            ref={container}
+          >
             {Object.keys(contentTransform).map((key) => {
               return (
                 <div key={key} className="flex flex-col gap-2">
-                  <h3 id={key}>{key}</h3>
+                  <h3 id={key} data-target-anchor="1">
+                    {key}
+                  </h3>
                   {contentTransform[key].map((item: any) => {
                     return (
                       <div
