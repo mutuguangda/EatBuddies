@@ -14,7 +14,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
-import { debounce, throttle } from "lodash-es";
+import { throttle } from "lodash-es";
 
 export default function Page() {
   const [order, setOrder] = useState<Recordable[]>([]);
@@ -35,12 +35,10 @@ export default function Page() {
       const anchors = Array.from(nodeList).map((item) => {
         return getScrollToElementValue(container.current!, item as HTMLElement);
       });
-      console.log("anchors", anchors);
       container.current.addEventListener(
         "scroll",
         throttle(() => {
           const scrollTop = container.current!.scrollTop;
-          console.log("scrollTop", scrollTop);
           for (let i = 0; i < anchors.length; i++) {
             if (i === 0 && scrollTop < anchors[i]) {
               setCategory(categories[0]);
@@ -63,17 +61,6 @@ export default function Page() {
     }
   }, []);
 
-  function getScrollToElementValue(
-    scrollContainer: HTMLElement,
-    targetElement: HTMLElement
-  ) {
-    const containerRect = scrollContainer.getBoundingClientRect();
-    const targetRect = targetElement.getBoundingClientRect();
-    const relativeTop = targetRect.top - containerRect.top;
-    const scrollValue = scrollContainer.scrollTop + relativeTop;
-    return scrollValue;
-  }
-
   const handleAdd = (item: Recordable) => {
     if (order.includes(item)) {
       return;
@@ -91,6 +78,17 @@ export default function Page() {
       title: "已复制到剪贴板",
     });
   };
+
+  const getScrollToElementValue = (
+    scrollContainer: HTMLElement,
+    targetElement: HTMLElement
+  ) => {
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const targetRect = targetElement.getBoundingClientRect();
+    const relativeTop = targetRect.top - containerRect.top;
+    const scrollValue = scrollContainer.scrollTop + relativeTop;
+    return scrollValue;
+  }
 
   return (
     <>
