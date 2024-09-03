@@ -1,5 +1,4 @@
 "use client";
-import { categories, content } from "./data.json";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Div100vh from "react-div-100vh";
@@ -15,8 +14,10 @@ import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
 import { throttle } from "lodash-es";
+import { get } from '@/app/api/notion'
 
 export default function Page() {
+  const [categories, setCategoreis] = useState<string[]>([]), [content, setContent] = useState<Recordable[]>([]);
   const [order, setOrder] = useState<Recordable[]>([]);
   const [category, setCategory] = useState<string>(categories[0]);
   const shareUrl = `${
@@ -33,7 +34,7 @@ export default function Page() {
     if (container.current) {
       const nodeList = document.querySelectorAll("[data-target-anchor]");
       const anchors = Array.from(nodeList).map((item) => {
-        return getScrollToElementValue(container.current!, item as HTMLElement);
+        return getScrollToElementValue(container.current!, item as HTMLElement) - 1;
       });
       container.current.addEventListener(
         "scroll",
@@ -59,7 +60,14 @@ export default function Page() {
       );
       return container.current.removeEventListener("scroll", () => {});
     }
-  }, []);
+  }, [categories]);
+
+  useEffect(() => {
+    get().then(res => {
+      setCategoreis(res.categories);
+      setContent(res.content);
+    })
+  }, [])
 
   const handleAdd = (item: Recordable) => {
     if (order.includes(item)) {
@@ -140,6 +148,7 @@ export default function Page() {
                             className="rounded-lg h-20 w-20 object-cover"
                             width={80}
                             height={80}
+                            priority={true}
                           />
                         ) : (
                           <div className="w-20 h-20 bg-gray-100 rounded-lg flex justify-center items-center text-2xl">
