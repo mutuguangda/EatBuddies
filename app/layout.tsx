@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif_SC as FontSerif } from "next/font/google"
+import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from "@/components/ui/toaster"
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
         </main>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
