@@ -1,3 +1,5 @@
+"use server"
+
 import { NotionAPI } from 'notion-client'
 import { parsePageId } from 'notion-utils'
 import * as dotenv from "dotenv";
