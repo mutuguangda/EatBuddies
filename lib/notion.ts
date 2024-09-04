@@ -3,6 +3,7 @@
 import { NotionAPI } from 'notion-client'
 import { parsePageId } from 'notion-utils'
 import * as dotenv from "dotenv";
+import _data from '../data/index.json'
 import path from "path";
 import dayjs from 'dayjs';
 dotenv.config({
@@ -11,10 +12,8 @@ dotenv.config({
 
 const api = new NotionAPI();
 
-export async function getNotionData() {
-  const pageId = parsePageId(process.env.NOTION_DATABASE_URL)
-  const response = await api.getPage(pageId)
-  const { block, collection } = response
+export async function transformNotionData(notionData: any) {
+  const { block, collection } = notionData
   const content: any[] = []
   let collectionId: string, schema: Recordable, categories: string[] = []
   Object.keys(block).forEach((key) => {
@@ -48,6 +47,28 @@ export async function getNotionData() {
   return {
     categories,
     content,
-    syncTime: dayjs().format()
   }
+}
+
+export async function getNotionData() {
+  const data = _data as unknown as Recordable
+  const response = await getNotionPage()
+  let updatedTime
+  for (const item of Object.values(response.block)) {
+    const value = item.value
+    if (value.type === 'collection_view') {
+      updatedTime = value.last_edited_time 
+      break
+    }
+  }
+  return {
+    response,
+    isSync: !data.syncTime ? false: dayjs(dayjs(data.syncTime)).isAfter(updatedTime)
+  }
+}
+
+async function getNotionPage() {
+  const pageId = parsePageId(process.env.NOTION_DATABASE_URL)
+  const response = await api.getPage(pageId)
+  return response
 }

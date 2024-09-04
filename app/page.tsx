@@ -6,6 +6,7 @@ import {
   Drawer,
   DrawerContent,
   DrawerHeader,
+  DrawerDescription,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
@@ -14,17 +15,19 @@ import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
 import { throttle } from "lodash-es";
-import { get } from '@/app/api/notion'
+import data from '@/data/index.json'
+import { getNotionData, transformNotionData } from "@/lib/notion";
 
 export default function Page() {
-  const [categories, setCategoreis] = useState<string[]>([]), [content, setContent] = useState<Recordable[]>([]);
+  const [categories, setCategoreis] = useState<string[]>(data.categories)
+  const [content, setContent] = useState<Recordable[]>(data.content);
   const [order, setOrder] = useState<Recordable[]>([]);
   const [category, setCategory] = useState<string>(categories[0]);
   const shareUrl = `${
     typeof window !== "undefined" ? window.location.origin : ""
   }/share#${utoa(JSON.stringify(order))}`;
   const contentTransform = categories.reduce((acc, cur) => {
-    acc[cur] = content.filter((item) => item.tags.includes(cur));
+    acc[cur] = content.filter((item) => (item.tags || '').includes(cur));
     return acc;
   }, {} as Recordable);
   const container = useRef<HTMLDivElement>(null);
@@ -63,10 +66,16 @@ export default function Page() {
   }, [categories]);
 
   useEffect(() => {
-    get().then(res => {
-      setCategoreis(res.categories);
-      setContent(res.content);
-    })
+    fetchData();
+
+    async function fetchData() {
+      const { response, isSync } = await getNotionData();
+      if (!isSync) {
+        const { categories, content } = await transformNotionData(response);
+        setCategoreis(categories);
+        setContent(content);
+      }
+    }
   }, [])
 
   const handleAdd = (item: Recordable) => {
