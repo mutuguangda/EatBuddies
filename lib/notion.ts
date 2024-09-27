@@ -3,7 +3,9 @@
 import { NotionAPI } from 'notion-client'
 import { parsePageId } from 'notion-utils'
 import * as dotenv from "dotenv";
+import _data from '../data/index.json'
 import path from "path";
+import dayjs from 'dayjs';
 dotenv.config({
   path: path.resolve(__dirname, "../.env.local"),
 });
@@ -49,6 +51,7 @@ export async function transformNotionData(notionData: any) {
 }
 
 export async function getNotionData() {
+  const data = _data as unknown as Recordable
   const response = await getNotionPage()
   let updatedTime
   for (const item of Object.values(response.block)) {
@@ -60,6 +63,7 @@ export async function getNotionData() {
   }
   return {
     response,
+    isSync: !data.syncTime ? false: dayjs(dayjs(data.syncTime)).isAfter(updatedTime)
   }
 }
 

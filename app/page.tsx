@@ -14,11 +14,12 @@ import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
 import { throttle } from "lodash-es";
+import data from '@/data/index.json'
 import { getNotionData, transformNotionData } from "@/lib/notion";
 
 export default function Page() {
-  const [categories, setCategoreis] = useState<string[]>([])
-  const [content, setContent] = useState<Recordable[]>([]);
+  const [categories, setCategoreis] = useState<string[]>(data.categories)
+  const [content, setContent] = useState<Recordable[]>(data.content);
   const [order, setOrder] = useState<Recordable[]>([]);
   const [category, setCategory] = useState<string>(categories[0]);
   const shareUrl = `${
@@ -31,12 +32,22 @@ export default function Page() {
   const container = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
+  const remaining = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (container.current) {
+      const clientHeight = container.current.clientHeight, scrollHeight = container.current.scrollHeight;
       const nodeList = document.querySelectorAll("[data-target-anchor]");
       const anchors = Array.from(nodeList).map((item) => {
         return getScrollToElementValue(container.current!, item as HTMLElement) - 1;
       });
+      if (remaining.current) {
+        const lastAnchor = anchors[anchors.length - 1];
+        const lastMenuitemHeight = scrollHeight - lastAnchor
+        if (lastMenuitemHeight < clientHeight) {
+          remaining.current.style.height = remaining.current.style.height || `${clientHeight - lastMenuitemHeight + 1}px`
+        }
+      }
       container.current.addEventListener(
         "scroll",
         throttle(() => {
@@ -67,10 +78,12 @@ export default function Page() {
     fetchData();
 
     async function fetchData() {
-      const { response } = await getNotionData();
-      const { categories, content } = await transformNotionData(response);
-      setCategoreis(categories);
-      setContent(content);
+      const { response, isSync } = await getNotionData();
+      if (!isSync) {
+        const { categories, content } = await transformNotionData(response);
+        setCategoreis(categories);
+        setContent(content);
+      }
     }
   }, [])
 
@@ -187,6 +200,7 @@ export default function Page() {
                 </div>
               );
             })}
+            <div ref={remaining}></div>
           </div>
         </div>
         <div className="p-5 border-t bg-background w-full flex justify-between items-center">

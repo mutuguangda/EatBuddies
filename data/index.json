@@ -1,0 +1,263 @@
+{
+  "categories": [
+    "喜食",
+    "肉类",
+    "河鲜/海鲜",
+    "素菜",
+    "下饭菜",
+    "凉拌",
+    "汤",
+    "火锅",
+    "饮品",
+    "甜品"
+  ],
+  "content": [
+    {
+      "id": "0e9db45c-d14c-4c83-9d7b-f5a7503b428d",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/f0da0e98-88c6-410a-888a-d8f96017c4ca/2021100116330608341598828010238.jpg",
+      "tags": "河鲜/海鲜",
+      "name": "小龙虾拌面"
+    },
+    {
+      "id": "0fef4eca-8c2b-80a1-a1fd-f316521758b1",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/79fdf9a1-89fb-479f-a8d3-b8bd56762ad8/fc2165b6d19d9f40259f5a1a92e9f2c.jpg",
+      "options": "甜,咸",
+      "tags": "素菜",
+      "name": "西红柿炒鸡蛋"
+    },
+    {
+      "id": "101f4eca-8c2b-8054-894e-d70dcb777bba",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/2b7a5ab4-4e97-40d0-a5a3-9b28afa2c705/05948579a428e9e301a313ef2e7fb00.jpg",
+      "tags": "凉拌",
+      "name": "凉拌苦瓜"
+    },
+    {
+      "id": "101f4eca-8c2b-80a5-a76a-f7cdca452a09",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/f95da068-4cc3-4108-b796-510e8e4d2720/f1d19b1651b3eec0e372993fa22de9b.jpg",
+      "tags": "河鲜/海鲜",
+      "name": "金蒜银蒜蒸虾"
+    },
+    {
+      "id": "161530a4-6e98-4dba-a2b1-26dfa8b38420",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/43f8cb61-ab78-4a55-8eb9-74956e947eef/mmexport1725308559703.jpg",
+      "tags": "肉类",
+      "name": "叉烧"
+    },
+    {
+      "id": "1a8c8af2-d594-4f1e-9667-cd687e5e9a3a",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/2a5d91cb-5672-41a6-b5a9-da5ae0900990/images.jpg",
+      "tags": "肉类",
+      "name": "可乐排骨"
+    },
+    {
+      "id": "1add1d3c-e5b7-4bed-9c2d-11f92a372732",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/003cedd0-020f-4d21-b4f6-3ba7f70c5ffb/ab2b952692fe61f6047909abe2327ed.jpg",
+      "tags": "家常菜,素菜",
+      "name": "虎皮尖椒"
+    },
+    {
+      "id": "2314693e-bf48-45f1-be4e-106a274ca9ab",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/4bd8c435-68e4-43a7-8b8a-7b530b4540f4/mmexport1725309724568.jpg",
+      "tags": "火锅",
+      "name": "桑拿牛肉"
+    },
+    {
+      "id": "23d4b9dd-edb0-40ff-8ca5-5db28bbc2417",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/60415460-b002-4d0e-8e3f-368ff7f1d5ea/b0279eb4537569d3f93317b41b79f03.jpg",
+      "tags": "饮品",
+      "name": "奶茶"
+    },
+    {
+      "id": "28afee50-6c24-487d-a14f-bebe8dc1c5ce",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/2230a9bc-f286-43a0-8a38-5e351c6cfc16/mmexport1725308214867.jpg",
+      "tags": "凉拌,肉类,喜食",
+      "description": "口感劲道，酸辣开胃",
+      "name": "凉拌牛肉"
+    },
+    {
+      "id": "29a24ab4-c58c-4111-b2bc-713184fcf692",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/0bc7a031-e65d-4e73-b53d-f6ad5b8bafcb/mmexport1725309688783.jpg",
+      "tags": "素菜",
+      "name": "小葱豆腐"
+    },
+    {
+      "id": "2ec44b66-8718-40dc-805e-3b8a7d9b908e",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/b0c5a771-200a-4714-b8b1-1571de5bea73/03eb7adab007f0810ec92f7be9beb52.jpg",
+      "tags": "河鲜/海鲜",
+      "name": "蒜蓉焖虾"
+    },
+    {
+      "id": "34a7f46c-fda7-4a14-8c04-b04f4287581d",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/d43ea9d4-89a2-4929-9919-c72605eb9bc1/71eae09f0603e6ba5d3cb2c27705ae7.jpg",
+      "tags": "凉拌",
+      "name": "红油钵钵鸡"
+    },
+    {
+      "id": "52f93fde-bd71-4fbb-98d5-2ddc34186485",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/e9a88dbb-891f-4e61-8d83-ca97b8fa9a50/mmexport1725309022289.jpg",
+      "tags": "饮品",
+      "name": "白月光"
+    },
+    {
+      "id": "5a8151d2-76c5-4b24-89b1-8d1d36379232",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/dad3e9b1-b411-40e6-ac0f-998f32aa9dcf/mmexport1725308684995.jpg",
+      "tags": "肉类",
+      "name": "水煮牛肉"
+    },
+    {
+      "id": "6b564ef8-f5a5-477e-a07e-a87f58aba19c",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/4694287a-740a-4ea3-a1f5-3fffbbae33bd/2b01aa69ee1151dfb997d0e0c4abe5b.jpg",
+      "tags": "下饭菜",
+      "name": "豆角炒橄榄菜"
+    },
+    {
+      "id": "6eda3521-19ae-4d90-aadf-cee7c1f11d3c",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/3d461612-a3eb-498b-b25f-013931fb390a/mmexport1725309772399.jpg",
+      "tags": "河鲜/海鲜",
+      "name": "蒜蓉小龙虾"
+    },
+    {
+      "id": "71e8c280-7ff8-4d05-a001-ccc9948644a1",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/8254b4c2-0077-408b-b309-7db5a7fe4666/150939551.jpg.middle.jpg",
+      "tags": "饮品",
+      "name": "金桔百香果蜂蜜水"
+    },
+    {
+      "id": "82a5f49b-4e15-421a-b568-0bc8e894b25a",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/df64b1f9-abc5-4833-b0f7-02b18facfeb6/25f92938f1e659a5711f1cce676cd16.jpg",
+      "tags": "喜食,肉类",
+      "name": "香菜牛肉饺子"
+    },
+    {
+      "id": "8939be3e-3aa4-408b-8f5a-4c65202cd04f",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/41ce0c92-9a75-4acf-9be7-b658d1746829/mmexport1725309355851.jpg",
+      "tags": "汤,火锅",
+      "name": "猪肚鸡"
+    },
+    {
+      "id": "91265f4c-d0d9-421c-8304-8452d0b70594",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/3bd2f09d-f53a-4eb9-b11c-de0d5f60c4b1/7d5d9fc0cee5173e58f0ab6359489e1.jpg",
+      "tags": "肉类",
+      "name": "柠檬干煎鸡"
+    },
+    {
+      "id": "93c160e8-a94d-4f34-89b4-b42ad2881188",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/323c010e-3545-47f3-ba44-90f4089d26d3/1550df78e3b7c187fab2ea9e6aeb798.jpg",
+      "tags": "汤",
+      "name": "鸡蛋汤"
+    },
+    {
+      "id": "a0814f66-a8ac-4ef2-b212-9e509254c06e",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/3de14967-fe08-40bf-ab41-1b85689e7f7e/mmexport1725309054363.jpg",
+      "tags": "下饭菜",
+      "name": "酸豆角肉沫"
+    },
+    {
+      "id": "ab9732f0-787d-4d57-91fa-bd6121f9389a"
+    },
+    {
+      "id": "abfbd413-c0a5-4efc-8b62-61edbbdd22b9",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/de1bbe69-c8da-4f51-8fa5-11881b1e64cf/dbdc78c9539b96407f81022b7ba8535.jpg",
+      "tags": "饮品",
+      "name": "酸梅汁"
+    },
+    {
+      "id": "b428ebed-4dda-4f63-a981-b1a7cfb12e97",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/812f0611-a1a2-4137-86f7-baee8b383434/66f3da11c8b73c79633f4d98b3c320b.jpg",
+      "tags": "河鲜/海鲜,喜食",
+      "name": "葱姜炒花甲"
+    },
+    {
+      "id": "baba8792-f17f-43ba-873e-742e39124acb",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/67ba8059-2a3d-4320-b456-db225fcde7d0/mmexport1725309692736.jpg",
+      "tags": "素菜",
+      "name": "酸炒空心菜梗"
+    },
+    {
+      "id": "bb95ec51-8036-4d55-a329-60e92593e030",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/18a7d372-a106-4bfa-af03-99ea92238930/fba17920a673a9d30fe964a807f190d.jpg",
+      "tags": "凉拌",
+      "name": "凉拌海带"
+    },
+    {
+      "id": "bfa6ea3e-47e1-40fe-b892-bfdd433f9c40",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/af9f8d36-ade4-4907-a276-7fec246f52a0/w700d1q75cms.jpg",
+      "options": "微辣,中辣,多辣",
+      "tags": "家常菜,素菜",
+      "name": "清炒时蔬"
+    },
+    {
+      "id": "c5e2eb89-c26e-4937-a7a6-609fdfffabd0",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/8d48e823-a6b4-454d-820b-ac511b945d19/mmexport1725309067740.jpg",
+      "tags": "火锅",
+      "name": "螺蛳粉火锅"
+    },
+    {
+      "id": "ced09bbf-b052-4fe0-b6a7-d36fb7d5f944",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/923eece4-8d3c-42ea-a141-b0d237928252/122eee40c50d2b1e2a90bd57f87f63a.jpg",
+      "tags": "凉拌",
+      "name": "凉拌青瓜"
+    },
+    {
+      "id": "cfa26a53-8cd5-4309-a406-32cc699847d2",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/651b873e-6f70-4b0c-8957-d1fef113261c/mmexport1725308647058.jpg",
+      "tags": "河鲜/海鲜",
+      "name": "蒸鱼"
+    },
+    {
+      "id": "d048c718-bc3e-4bfc-96a2-0397cd51ed4f",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/cc0c2267-3e10-4ca6-9dc4-79787a38b9bc/mmexport1725308566688.jpg",
+      "tags": "河鲜/海鲜",
+      "name": "姜葱炒蛏子"
+    },
+    {
+      "id": "e22c5bca-ad1d-45d0-976c-d906fc08ac1a",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/35efc5cf-789a-4ad5-a4e8-f82d1ef48a0c/mmexport1725309681824.jpg",
+      "tags": "甜品",
+      "name": "白凉粉"
+    },
+    {
+      "id": "e7ec1385-ab49-4369-9815-8c412e9a42f4",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/32d6f3c9-a37d-454f-b594-0aadcaf2afa8/mmexport1725308134528.jpg",
+      "tags": "凉拌,喜食,河鲜/海鲜",
+      "name": "海鲜捞汁"
+    },
+    {
+      "id": "ec172477-524a-4869-8833-6951aef08d0e",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/856ec2f1-1aa0-42ae-9730-e0349b93bcf5/images_(2).jpg",
+      "tags": "肉类",
+      "name": "口蘑炒鸡丁"
+    },
+    {
+      "id": "ed268010-665d-45a7-84c8-ec58fc43f3d1",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/880f9e69-6643-41cd-a6dc-a9837683fed8/images_(1).jpg",
+      "tags": "肉类",
+      "name": "蒜香鸡翅"
+    },
+    {
+      "id": "f0d21444-3631-4cd4-af84-0abb51eccb92",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/6d714aa7-9147-4ffe-82c4-745aefbfe837/mmexport1725308622212.jpg",
+      "tags": "家常菜,肉类",
+      "name": "番茄牛腩"
+    },
+    {
+      "id": "f1426f34-2091-4a2d-b767-e26d3a3349a2",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/15160b8c-7874-4d8a-8888-10dbf64aa55f/61f7c324d7542dc5189e7d750381012.jpg",
+      "tags": "肉类",
+      "name": "五花肉炒辣椒口蘑"
+    },
+    {
+      "id": "ffa54b25-bae4-497b-ba56-c01c9b30f09f",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/f9236e36-d672-4177-a6e8-de5011f80318/mmexport1725309064442.jpg",
+      "tags": "凉拌",
+      "name": "凉拌无骨鸡爪"
+    },
+    {
+      "id": "ffff4eca-8c2b-806a-b211-ef2dc88f7455",
+      "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/0f519205-a3a7-45d5-accb-29b2fb974d14/5349687a-2ce1-4e7d-a003-483a1299d9cf/8513c1d78cad5e5d61d49ce19410f3d.jpg",
+      "tags": "肉类",
+      "name": "照烧鸡腿"
+    }
+  ],
+  "syncTime": 1727466955387
+}
