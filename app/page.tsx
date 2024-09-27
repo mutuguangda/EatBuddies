@@ -6,7 +6,6 @@ import {
   Drawer,
   DrawerContent,
   DrawerHeader,
-  DrawerDescription,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
@@ -15,12 +14,11 @@ import { Button } from "@/components/ui/button";
 import { cn, utoa } from "@/lib/utils";
 import { setClipboard } from "@/lib/utils";
 import { throttle } from "lodash-es";
-import data from '@/data/index.json'
 import { getNotionData, transformNotionData } from "@/lib/notion";
 
 export default function Page() {
-  const [categories, setCategoreis] = useState<string[]>(data.categories)
-  const [content, setContent] = useState<Recordable[]>(data.content);
+  const [categories, setCategoreis] = useState<string[]>([])
+  const [content, setContent] = useState<Recordable[]>([]);
   const [order, setOrder] = useState<Recordable[]>([]);
   const [category, setCategory] = useState<string>(categories[0]);
   const shareUrl = `${
@@ -69,12 +67,10 @@ export default function Page() {
     fetchData();
 
     async function fetchData() {
-      const { response, isSync } = await getNotionData();
-      if (!isSync) {
-        const { categories, content } = await transformNotionData(response);
-        setCategoreis(categories);
-        setContent(content);
-      }
+      const { response } = await getNotionData();
+      const { categories, content } = await transformNotionData(response);
+      setCategoreis(categories);
+      setContent(content);
     }
   }, [])
 
@@ -109,12 +105,9 @@ export default function Page() {
 
   return (
     <>
-      {/* <header className="fixed top-0 border-b p-5 flex justify-between items-center">
-        <span>友食</span>
-      </header> */}
       <Div100vh className="flex flex-col">
         <div className="h-0 min-h-0 flex-grow flex">
-          <div className="relative flex flex-col border-r w-1/5">
+          <div className="relative flex flex-col border-r">
             {categories.map((item) => (
               <a key={item} className="p-3" href={`#${item}`}>
                 {item}

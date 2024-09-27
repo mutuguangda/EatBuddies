@@ -5,8 +5,7 @@
     "dev": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "sync": "tsx --tsconfig ./tsconfig.node.json ./scripts/sync.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",
